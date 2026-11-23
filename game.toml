@@ -1,0 +1,59 @@
+# Autofilled by tools/new_project_layout/probe_disc.py from your legal dump.
+# Review before shipping. Runtime quirks / overlay seeds still need hand work.
+
+[game]
+name = "Command & Conquer"
+id = "SLUS-00379"
+players = 1
+exe = "disc/SLUS_003.79"
+disc = "disc/Command & Conquer (USA) (Disc 1) (GDI).cue"
+discs = ["disc/Command & Conquer (USA) (Disc 1) (GDI).cue"]
+disc_serials = ["SLUS-00379"]
+load_address = "0x80010000"
+entry_pc = "0x8009C334"
+text_size = "0x00120000"
+stack_base = "0x801FFFF0"
+
+# Digests are for data Track 01 (first BINARY FILE / TRACK 01).
+[prepare_disc]
+out_dir = "disc"
+bin_name = "Command & Conquer (USA) (Disc 1) (GDI).bin"
+cue_name = "Command & Conquer (USA) (Disc 1) (GDI).cue"
+boot_exe = "SLUS_003.79"
+known_sizes = [736253616]
+known_md5 = [
+  "3e647d79da9effe88c3190501d01a9e1",
+]
+known_sha1 = [
+  "1d698fd7c2bc3eb55208b7cf8476b9142908996a",
+]
+known_crc32 = [
+  "aa2c2e6c",
+]
+
+[recompiler]
+bios_config = "psxrecomp/bios/SCPH1001.toml"
+seeds = "seeds/ghidra_funcs.txt"
+out_dir = "generated"
+strict = true
+
+[runtime]
+openbios = false
+bios_hle = false
+window_title = "Command & Conquer Recompiled"
+memcard_dir = "saves"
+overlay_cache = true
+
+[video]
+renderer = "opengl"
+aspect_ratio = "4:3"
+
+[controller]
+default_mode = "digital"
+
+# Online mount gate: digests + track count + optional TOC fingerprint
+# (see docs/NETPLAY.md).
+[netplay]
+require_cue = true
+required_tracks = 1
+required_disc_fp = "34cce20d2f9cae826616a40378bf63c5143895ebc59af0beba14711dc4bf6fe1"

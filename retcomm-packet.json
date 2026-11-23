@@ -1,0 +1,98 @@
+{
+  "format_version": 1,
+  "id": "command-and-conquer-psx",
+  "name": "Command & Conquer",
+  "kind": "recomp",
+  "platform": "psx",
+  "source_repo": "command-and-conquer-recomp",
+  "rom_identity": {
+    "crc32": [
+      "aa2c2e6c"
+    ],
+    "md5": [
+      "3e647d79da9effe88c3190501d01a9e1"
+    ],
+    "sha1": [
+      "1d698fd7c2bc3eb55208b7cf8476b9142908996a"
+    ],
+    "disc_serials": [
+      "SLUS-00379"
+    ],
+    "sizes": [
+      736253616
+    ],
+    "filenames": [
+      "Command & Conquer (USA) (Disc 1) (GDI).cue",
+      "Command & Conquer (USA) (Disc 1) (GDI).bin"
+    ],
+    "track_counts": [
+      1
+    ],
+    "disc_fps": [
+      "34cce20d2f9cae826616a40378bf63c5143895ebc59af0beba14711dc4bf6fe1"
+    ],
+    "require_cue": true
+  },
+  "rom_extensions": [
+    ".cue",
+    ".bin",
+    ".chd"
+  ],
+  "bios_identity": {
+    "required": true,
+    "name": "SCPH1001.BIN",
+    "profile": "SCPH1001",
+    "crc32": [
+      "37157331"
+    ],
+    "md5": [
+      "924e392ed05558ffdb115408c263dccf"
+    ],
+    "sha1": [
+      "10155d8d6e6e832d6ea66db9bc098321fb5e8ebf"
+    ],
+    "sha256": [
+      "71af94d1e47a68c11e8fdb9f8368040601514a42a5a399cda48c7d3bff1e99d3"
+    ],
+    "sizes": [
+      524288
+    ],
+    "filenames": [
+      "SCPH1001.BIN"
+    ]
+  },
+  "release": {
+    "github": "alexbeavs-ps1-ports/command-and-conquer-recomp",
+    "allow_prerelease": false,
+    "asset_glob": {
+      "windows-x64": "command-and-conquer-*-windows-x64.zip",
+      "linux-x64": "command-and-conquer-*-linux-x64.zip",
+      "macos-arm64": "command-and-conquer-*-macos-arm64.zip",
+      "macos-x64": "command-and-conquer-*-macos-x64.zip"
+    }
+  },
+  "launch": {
+    "windows": "command_and_conquer.exe",
+    "linux": "command_and_conquer",
+    "macos": "command_and_conquer"
+  },
+  "build": {
+    "source": {
+      "github": "alexbeavs-ps1-ports/command-and-conquer-recomp",
+      "ref": ""
+    },
+    "toolchain": {
+      "id": "cmake-clang-v1",
+      "min_version": "1.0.14"
+    },
+    "generate": {
+      "engine": "psxrecomp",
+      "config": "game.toml"
+    },
+    "cmake": {
+      "build_dir": "build",
+      "target": "psx-runtime",
+      "config": "Release"
+    }
+  }
+}
